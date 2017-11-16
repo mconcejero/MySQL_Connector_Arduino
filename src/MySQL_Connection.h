@@ -40,6 +40,7 @@ class MySQL_Connection : public MySQL_Packet {
   public:
     MySQL_Connection(Client *client_instance) :
         MySQL_Packet(client_instance) {}
+    boolean connect(const char* server, int port, char *user, char *password); // allows to connect to the database by its URL instead of IP address
     boolean connect(IPAddress server, int port, char *user, char *password);
     int connected() { return client->connected(); }
     const char *version() { return MYSQL_VERSION_STR; }
